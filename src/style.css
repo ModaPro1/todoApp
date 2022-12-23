@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;600;700&display=swap');
+:root {
+  --primary-color: #007BFF;
+  --yellow-color: #FFC515;
+}
+* {
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  font-family: 'Chivo Mono', monospace;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+}
+
+.app {
+  background-color: #F8F9FA;
+  width: 850px;
+  border-radius: 10px;
+  padding: 15px 115px;
+  text-align: center;
+  box-shadow: 1px 1px 8px 3px #ddd;
+}
+.primary span {
+  color: var(--primary-color);
+}
+
+.header {
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgb(231, 231, 231);
+  margin-bottom: 25px;
+}
+.header .inputs {
+  position: relative;
+}
+.header .inputs .todo-input {
+  border: none;
+  width: 100%;
+  padding: 15px 20px;
+  box-shadow: 1px 1px 7px 1px #ddd;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.header .inputs .add {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  padding: 7px 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  flex-wrap: wrap;
+}
+.list:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+.list:hover .edit,
+.list:hover .remove {
+  opacity: 1;
+}
+.list .text {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.checkbox-container {
+  position: relative;
+}
+.checkbox-container::after {
+  content: 'Completed ?';
+  position: absolute;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 14px;
+  width: 110px;
+  padding: 5px 0;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -35px;
+  transition: .3s;
+  opacity: 0;
+}
+.checkbox-container::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-color: var(--primary-color) transparent transparent;
+  border-style: solid;
+  transition: .3s;
+  opacity: 0;
+}
+.checkbox-container:hover::after,
+.checkbox-container:hover::before {
+  opacity: 1;
+}
+.list .text input {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  transition: .3s;
+}
+.list .text input:checked::before {
+  opacity: 1;
+}
+.list .text input::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--primary-color);
+  transition: .3s;
+  opacity: 0;
+}
+
+.list .time {
+  display: flex;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 2px solid var(--yellow-color);
+}
+.list .time .date {
+  font-size: 15px;
+}
+.list .time i {
+  color: var(--yellow-color);
+}
+
+.list .remove {
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 18px;
+  transition: .3s;
+  opacity: 0;
+}
+.list .edit {
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #17a2b8;
+  font-size: 18px;
+  transition: .3s;
+  opacity: 0;
+}
+
+.todoNameAlert {
+  background: #add8e6;
+}
+
+@media (max-width:767px) {
+  .app {
+    padding: 15px 45px;
+  }
+  .list .remove,.list .edit {
+    opacity: 1;
+  }
+}

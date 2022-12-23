@@ -26,6 +26,8 @@ body {
   padding: 15px 115px;
   text-align: center;
   box-shadow: 1px 1px 8px 3px #ddd;
+  max-height: 800px;
+  overflow: auto;
 }
 .primary span {
   color: var(--primary-color);

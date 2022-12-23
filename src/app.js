@@ -19,7 +19,7 @@ export default function App() {
   function addTask() {
     if(!document.querySelector(".todo-input").value == "") { // Check if it isnt empty
       let currentDate = new Date()
-      let day = currentDate.getDay() + "th"
+      let day = currentDate.getDate() + "th"
       let month = currentDate.getMonth() + 1
       let year = currentDate.getFullYear()
   
